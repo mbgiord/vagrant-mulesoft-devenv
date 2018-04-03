@@ -2,15 +2,15 @@
 
 ## What is this?  
 
-It's a simple virtualized development environment that gets MuleSoft's Anypoint Studio up and running... FAST!
+This is a simple virtualized development environment that gets MuleSoft's Anypoint Studio up and running... FAST!
 
-Sample Use Cases:
+It is intended to get you started.  It can easily be enhanced and configured to fit your specific requirements.  
+
+## Sample Use Cases
 
 1. **I want to kick the tires.**  I'm a technologist that's interested in MuleSoft.  Seeing is believing.  I've talked with people and read documentation but that's not good enough for me.  
 1. **I want to train people.**  I'm commited to MuleSoft as a technology and I need to educate my team.   I don't want them to waste their time installing basic prerequisites.
 1. **I want a common development environment.**  I'm a tech lead looking for consistency and efficiency.  I don't want developers to ever use the excuse "it works on my machine"!
-
-This is a very simple setup (only 75 lines of code!) to get you started.  From there, it can be configured to fit your specific requirements.
 
 ## Success Criteria
 
@@ -22,7 +22,7 @@ Upon completion you will have two things:
 | Technology | Purpose | Version |
 | --- |:---:| :---:|
 | [Chromium](https://www.chromium.org/Home) | Web Browser | [See debian package](https://packages.debian.org/jessie/chromium) |
-| [debian](https://www.debian.org/) | Operating System |  |
+| [debian](https://www.debian.org/) | Operating System | [jessie](https://www.debian.org/releases/jessie/) |
 | [GIT](https://git-scm.com/) | Source Code Management | [See debian package](https://packages.debian.org/jessie/git-all) |
 | [Java JDK](https://java.com/en/) | Software Platform | 1.8 |
 | [Maven](https://maven.apache.org/) | Java Build Tool | [See debian package](https://packages.debian.org/jessie/maven) |
@@ -31,8 +31,7 @@ Upon completion you will have two things:
 | [lxde](https://lxde.org/) | Desktop Environment | [See debian package](https://packages.debian.org/jessie/metapackages/lxde) | 
 </li>
 <li> 
-A built and (locally) deployed MuleSoft application. <p>
-We will get the following up and running.
+A built and locally deployed MuleSoft application. <p>
  
 | Github Repository | Branch | Project |
 | --- |:---:| :---:|
@@ -48,9 +47,9 @@ The following prerequisites are based on:
 1. [Release Notes](https://docs.mulesoft.com/release-notes/anypoint-studio-6.4-with-3.9.0-runtime-release-notes) provided by MuleSoft. 
 1. Specifications of the host machine used to develop these scripts.  
 
-The software components below are requirements, they are needed.  **_The hardware specs and any versions should be viewed as guidelines and not requirements._**
+The software components below are requirements, they are needed.  Other configurations/versions will most likely work with little to no modification.
 
-Other configurations/versions will most likely work with little to no modification.
+**_The hardware specs and any versions should be viewed as guidelines and not requirements._**
 
 ### 1) Hardware
   
@@ -86,7 +85,7 @@ Vagrant 2.0.2
 
 From a command prompt: 
 ```
-C:\>git clone [tbd]
+C:\Projects>git clone https://github.com/mbgiord/vagrant-mulesoft-devenv.git
 ```
  
 ### 3) Create and configure the VM using Vagrant
@@ -94,8 +93,8 @@ C:\>git clone [tbd]
 From a command prompt, navigate to the Vagrantfile and run `vagrant up`. 
 
 ```
-C:\>cd Projects\mule-debian
-C:\Projects\mule-debian>vagrant up
+C:\Projects>cd vagrant-mulesoft-devenv
+C:\Projects\vagrant-mulesoft-devenv>vagrant up
 Bringing machine 'default' up with 'virtualbox' provider...
 ==> default: Checking if box 'debian/jessie64' is up to date...
 ```
@@ -105,7 +104,7 @@ Depending on the speed of your machine and internet connection this **might take
 ```
 ==> default: If this is your first time running 'vagrant up' please run 'vagrant reload'. 
  
-C:\Projects\mule-debian>
+C:\Projects\vagrant-mulesoft-devenv>
 ```
 
 If you **did** receive errors, fix them and rerun `vagrant up`.  If you want to restart clean, run `vagrant destroy` first.
@@ -117,7 +116,7 @@ Upon completion you should be presented with a debian login screen.
 ![Debian Login Screen Image](images/debian_login_screen.jpg "Debian Login Screen")
 
 ### 4) Smoke Test the VM
-Login using the credentials vagrant/vagrant.  
+Login using the credentials `vagrant/vagrant`.  
 Launch a terminal via `System Tools -> LXTerminal`.
 
 ![Debian Start Terminal Image](images/debian_startterminal_screen.jpg "Debian Start Terminal")
@@ -125,7 +124,7 @@ Launch a terminal via `System Tools -> LXTerminal`.
 
 ## Running MuleSoft's "Hello World" Application
 
-The next few steps should be performed from the (debian) virtual machine.
+The following steps should be performed within the newly created virtual machine.
 
 ### 1) Download MuleSoft's Anypoint-Examples
 
